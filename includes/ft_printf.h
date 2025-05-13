@@ -1,37 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: khanadat <khanadat@student.42tokyo.jp>     #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-04-26 10:46:40 by khanadat          #+#    #+#             */
-/*   Updated: 2025-04-26 10:46:40 by khanadat         ###   ########.jp       */
+/*   Created: 2025-05-12 08:53:24 by khanadat          #+#    #+#             */
+/*   Updated: 2025-05-12 08:53:24 by khanadat         ###   ########.jp       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
-{
-	unsigned char		*d;
-	const unsigned char	*s;
+# include <stdarg.h>
+# include <stddef.h>
+# include <unistd.h>
 
-	d = dest;
-	s = src;
-	if (d == s || n == 0)
-		return (dest);
-	if (d < s)
-	{
-		while (n--)
-			*d++ = *s++;
-	}
-	else
-	{
-		d += n;
-		s += n;
-		while (n--)
-			*--d = *--s;
-	}
-	return (dest);
-}
+int		ft_printf(const char *format, ...);
+
+#endif

@@ -1,4 +1,35 @@
 #include "ft_fmt.h"
+#include "ft_handle.h"
+
+static char	*ft_strchr(const char *s, int c)
+{
+	if (!s)
+		return (NULL);
+	while (*s)
+	{
+		if (*s == (char)c)
+			return ((char *)s);
+		s++;
+	}
+	if ((char)c == '\0')
+		return ((char *)s);
+	return (NULL);
+}
+
+static int	atoi_move(const char *fmt, unsigned int *i)
+{
+	int	n;
+
+	n = 0;
+	if (!('0' <= fmt[*i] && fmt[*i] <= '9'))
+		return (-1);
+	while ('0' <= fmt[*i] && fmt[*i] <= '9')
+	{
+		n = n * 10 + (fmt[*i] - '0');
+		(*i)++;
+	}
+	return (n);
+}
 
 void	f_init(t_fmt	*f)
 {
@@ -22,37 +53,42 @@ void	f_parse_flags(const char *fmt, unsigned int *i, t_fmt *f)
 			f->flags += FLAG_ZERO;
 		else if (fmt[*i] == '#')
 			f->flags += FLAG_HASH;
-		*i++;
+		(*i)++;
 	}
 	if (FLAG_MINUS)
 		f->flags ^= FLAG_ZERO;
 }
 
-void	f_parse_width_prec(const char *fmt, unsigned int *i, t_fmt *f, va_list *ap)
+void	f_parse_width_prec(const char *fmt, unsigned int *i, t_fmt *f)
 {
-	
+	f->width = atoi_move(fmt, i);
+	if (fmt[*i] == '.')
+	{
+		(*i)++;
+		f->flags += FLAG_DOT;
+		f->prec = atoi_move(fmt, i);
+		if (f->prec < 0)
+			f->flags ^= FLAG_DOT;
+	}
 }
 
 int	dispatch(const t_fmt *f, va_list *ap)
 {
 	if (f->spec == 'c')
-	{
-		char c = (char)va_arg(*ap, int);
-		return (write(1, 'c', 1));
-	}
+		return (handle_char((char)va_arg(*ap, int), f));
 	if (f->spec == 's')
-		return (write(1, 's', 1));
-	if (f->spec == 'p')
-		return (write(1, 'p', 1));
-	if (f->spec == 'd' || f->spec == 'i')
-		return (write(1, 'd', 1));
-	if (f->spec == 'u')
-		return (write(1, 'u', 1));
-	if (f->spec == 'x')
-		return (write(1, 'x', 1));
-	if (f->spec == 'X')
-		return (write(1, 'X', 1));
-	if (f->spec == '%')
-		return (write(1, '%', 1));
+		return (handle_str(va_arg(*ap, char *), f));
+	// if (f->spec == 'p')
+	// 	return (handle_uint);
+	// if (f->spec == 'd' || f->spec == 'i')
+	// 	return (handle_int);
+	// if (f->spec == 'u')
+	// 	return (handle_uint);
+	// if (f->spec == 'x')
+	// 	return (handle_uint);
+	// if (f->spec == 'X')
+	// 	return (handle_uint);
+	if (f->spec == '%') 
+		return (handle_str("%", f));
 	return (0);
 }

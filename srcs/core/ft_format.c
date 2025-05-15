@@ -82,8 +82,8 @@ int	dispatch(const t_fmt *f, va_list *ap)
 	// 	return (handle_uint);
 	// if (f->spec == 'd' || f->spec == 'i')
 	// 	return (handle_int);
-	// if (f->spec == 'u')
-	// 	return (handle_uint);
+	if (f->spec == 'u')
+		return (handle_uint(va_arg(*ap, unsigned), f, 10));
 	// if (f->spec == 'x')
 	// 	return (handle_uint);
 	// if (f->spec == 'X')

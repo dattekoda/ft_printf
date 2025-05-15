@@ -1,20 +1,28 @@
 NAME	= ft_printf.a
-CC		= cc
-OBJS	= -Wall -Wextra -Werror
+CC		= clang
+CFLAGS	= -Wall -Wextra -Werror -Iincludes
 AR		= ar rcs
 
-SRC_DIR	= src
-MAND_SRC=	$(addprefix $(SRC_DIR)/core/, ft_printf.c) \
-			$(addprefix $(SRC_DIR)/conv/, conv_char.c) \
-			$(addprefix $(SRC_DIR)/utils/, itoa_base.c) \
+SRCS := srcs/core/ft_format.c srcs/core/ft_printf.c \
+srcs/handle/handle.c srcs/handle/output.c \
+srcs/libft/libft.c srcs/utils/ft_utils.c
 
-BONUS_DIR = src_bonus
-BONUS_SRC = $(BONUS_DIR)/parse_flag_bonus.c \
-			$(BONUS_DIR)/pad_bonus.c
+OBJS := $(SRCS:.c=.o)
 
-OBJS	= $(MAND_SRC:.c=.o)
-OBJS_B	= $(BONUS_SRC)
-$(NAME):
-	make -C $(LIBFT_DIR)
-	cp $(LIBFT_DIR)/libft.a .
-	ar rcs $@ $(OBJS)
+.PHONY: all clean fclean re
+
+all: $(NAME)
+
+$(NAME): $(OBJS)
+	$(AR) $@ $^
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+clean:
+	$(RM) $(OBJS)
+
+fclean: clean
+	$(RM) $(NAME)
+
+re: fclean all

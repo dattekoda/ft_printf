@@ -1,39 +1,5 @@
 #include "ft_handle.h"
-
-static size_t ft_strlen(const char *s)
-{
-	const char *h;
-
-	if (!s)
-		return (0);
-	h = s;
-	while (*s)
-		s++;
-	return ((size_t)(s - h));
-}
-
-static void	ft_putnchar(char c, int n, int *len)
-{
-	while (n--)
-		*len += write(1, &c, 1);
-}
-
-static char	*ft_strdup(const char *s)
-{
-	char	*dup;
-	size_t		slen;
-
-	if (!s)
-		return (NULL);
-	slen = ft_strlen(s);
-	dup = malloc(slen + 1);
-	if (!dup)
-		return (NULL);
-	dup[slen] = '\0';
-	while (slen--)
-		dup[slen] = s[slen];
-	return (dup);
-}
+#include "libft.h"
 
 // int print_num_prefix(long sign, t_fmt *f, int *len)
 // {
@@ -69,4 +35,25 @@ int	handle_str(char *s, const t_fmt *f)
 	if (f->width > slen && f->flags & FLAG_MINUS)
 		ft_putnchar (' ', f->width - slen, &len);
 	return (len);
+}
+
+int	handle_uint(unsigned long n, const t_fmt *f, unsigned base)
+{
+	char	*num;
+	int		len;
+	int		nlen;
+
+	len = 0;
+	if (f->spec == 'p' && n == 0)
+		num = ft_strdup("(nil)");
+	else
+		num = ft_utoa_base(n, f, base);
+	if (!num)
+		return (0);
+	nlen = (int)ft_strlen(num);
+	if (f->flags & FLAG_MINUS)
+		output_left(num, f, nlen, &len);
+	else
+		output_right(num, f, nlen, &len);
+	return (free(num), len);
 }

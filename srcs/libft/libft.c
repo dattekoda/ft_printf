@@ -1,0 +1,43 @@
+#include "libft.h"
+
+size_t ft_strlen(const char *s)
+{
+	const char *h;
+
+	if (!s)
+		return (0);
+	h = s;
+	while (*s)
+		s++;
+	return ((size_t)(s - h));
+}
+
+char	*ft_strdup(const char *s)
+{
+	char		*dup;
+	size_t		slen;
+
+	slen = ft_strlen(s);
+	dup = malloc(slen + 1);
+	if (!dup)
+		return (NULL);
+	dup[slen] = '\0';
+	while (slen--)
+		dup[slen] = s[slen];
+	return (dup);
+}
+
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+{
+	size_t	slen;
+
+	if (!dst || !src)
+		return (0);
+	slen = -1;
+	while (src[++slen] && size-- > 1)
+		dst[slen] = src[slen];
+	dst[slen] = '\0';
+	while (src[slen])
+		slen++;
+	return (slen);
+}

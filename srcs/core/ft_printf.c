@@ -7,7 +7,6 @@ int	ft_printf(const char *fmt, ...)
 	unsigned int	total;
 	va_list			ap;
 	t_fmt			f;
-	char			c;
 
 	i = 0;
 	total = 0;
@@ -29,10 +28,4 @@ int	ft_printf(const char *fmt, ...)
 	}
 	va_end(ap);
 	return (total);
-}
-
-#include <stdio.h>
-int	main(void)
-{
-	printf("\ntotal = %d\n", ft_printf("%2.c", 'a'));
 }

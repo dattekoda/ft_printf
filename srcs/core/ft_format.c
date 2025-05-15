@@ -79,16 +79,16 @@ int	dispatch(const t_fmt *f, va_list *ap)
 	if (f->spec == 's')
 		return (handle_str(va_arg(*ap, char *), f));
 	// if (f->spec == 'p')
-	// 	return (handle_uint);
+	// 	return (handle_uint(va_arg(*ap, unsigned), f, 16));
 	// if (f->spec == 'd' || f->spec == 'i')
 	// 	return (handle_int);
 	if (f->spec == 'u')
 		return (handle_uint(va_arg(*ap, unsigned), f, 10));
-	// if (f->spec == 'x')
-	// 	return (handle_uint);
-	// if (f->spec == 'X')
-	// 	return (handle_uint);
-	if (f->spec == '%') 
+	if (f->spec == 'x')
+		return (handle_uint(va_arg(*ap, unsigned), f, 16));
+	if (f->spec == 'X')
+		return (handle_uint(va_arg(*ap, unsigned), f, 16));
+	if (f->spec == '%')
 		return (handle_str("%", f));
 	return (0);
 }

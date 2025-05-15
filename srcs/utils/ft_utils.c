@@ -7,10 +7,14 @@ void	ft_putnchar(char c, int n, int *len)
 		*len += write(1, &c, 1);
 }
 
-void	ft_putstr_len(const char* s, int *len)
+int	ft_putstr_len(const char* s, int *len)
 {
+	int	start;
+
+	start = *len;
 	while (*s)
 		*len += write(1, s++, 1);
+	return (start - *len);
 }
 
 char *ft_utoa_base(unsigned long n, const t_fmt *f, unsigned base)

@@ -44,10 +44,10 @@ int	handle_char(char c, const t_fmt *f)
 	int	len;
 
 	len = 0;
-	if (!(f->flags & FLAG_MINUS))
+	if (f->width > 1 && !(f->flags & FLAG_MINUS))
 		ft_putnchar(' ', f->width - 1, &len);
 	len += write(1, &c, 1);
-	if (f->flags & FLAG_MINUS)
+	if (f->width > 1 && f->flags & FLAG_MINUS)
 		ft_putnchar(' ', f->width - 1, &len);
 	return (len);
 }
@@ -63,10 +63,10 @@ int	handle_str(char *s, const t_fmt *f)
 	slen = (int)ft_strlen(s);
 	if (f->flags & FLAG_DOT && f->prec < slen)
 		slen = f->prec;
-	if (!(f->flags & FLAG_MINUS))
+	if (f->width > slen && !(f->flags & FLAG_MINUS))
 		ft_putnchar(' ', f->width - slen, &len);
 	len += write(1, s, slen);
-	if (f->flags & FLAG_MINUS)
+	if (f->width > slen && f->flags & FLAG_MINUS)
 		ft_putnchar (' ', f->width - slen, &len);
 	return (len);
 }

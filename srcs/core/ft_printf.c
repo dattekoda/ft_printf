@@ -34,5 +34,5 @@ int	ft_printf(const char *fmt, ...)
 #include <stdio.h>
 int	main(void)
 {
-	printf("\ntotal = %d\n", ft_printf("%10s", "abc"));
+	printf("\ntotal = %d\n", ft_printf("%2.c", 'a'));
 }

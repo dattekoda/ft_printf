@@ -19,12 +19,12 @@
 # include <unistd.h>
 # include <stdio.h>
 
-# define FLAG_ZERO	0x01 //ビットマスクでフラグ設定
-# define FLAG_MINUS	0x02
-# define FLAG_PLUS	0x04
-# define FLAG_SPACE	0x08
-# define FLAG_HASH	0x10
-# define FLAG_DOT	0x20
+# define FLAG_ZERO	0b00000001 //ビットマスクでフラグ設定
+# define FLAG_MINUS	0b00000010
+# define FLAG_PLUS	0b00000100
+# define FLAG_SPACE	0b00001000
+# define FLAG_HASH	0b00010000
+# define FLAG_DOT	0b00100000
 
 typedef struct s_fmt //フォーマット解析用構造体
 {

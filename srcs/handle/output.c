@@ -9,13 +9,13 @@ static int	max(int a, int b)
 	return (a);
 }
 
-void	output_left(char *s, const t_fmt *f, int nlen, int *len)
+void	output_left(char *s, const t_fmt *f, int *len)
 {
 	int	m;
+	int	nlen;
 
+	nlen = ft_strlen(s);
 	m = max(nlen, f->prec);
-	if (f->flags & FLAG_HASH)
-		ft_putstr_len("0x", len);	
 	if (f->flags & FLAG_DOT && f->prec > nlen)
 		ft_putnchar('0', f->prec - nlen, len);
 	ft_putstr_len(s, len);
@@ -23,15 +23,17 @@ void	output_left(char *s, const t_fmt *f, int nlen, int *len)
 		ft_putnchar(' ', f->width - m, len);
 }
 
-void	output_right(char *s, const t_fmt *f, int nlen, int *len)
+void	output_right(char *s, const t_fmt *f, int *len)
 {
-	int		m;
+	int	m;
+	int	nlen;
 
+	nlen = ft_strlen(s);
 	m = max(nlen, f->prec);
-	if (f->width > m)
+	if (f->width > m && !(f->flags & FLAG_ZERO))
+		ft_putnchar('0', f->width - m, len);
+	else if (f->width > m && f->flags & FLAG_ZERO)
 		ft_putnchar(' ', f->width - m, len);
-	if (f->flags & FLAG_HASH)
-		ft_putstr_len("0x", len);
 	if (f->flags & FLAG_DOT && f->prec > nlen)
 		ft_putnchar('0', f->prec - nlen, len);
 	ft_putstr_len(s, len);

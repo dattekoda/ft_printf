@@ -41,25 +41,14 @@ int	handle_uint(unsigned long n, t_fmt *f, unsigned base)
 {
 	char	*num;
 	int		len;
-	int		nlen;
 
 	len = 0;
-	if (f->flags & FLAG_DOT && f->prec == 0 && n == 0)
-		num = ft_strdup("");
-	else if (f->spec == 'p' && n == 0)
-		num = ft_strdup("(nil)");
-	else
-		num = ft_utoa_base(n, f, base);
+	num = ready_uint(n, f, base);
 	if (!num)
 		return (0);
-	nlen = (int)ft_strlen(num);
-	if (f->flags & FLAG_HASH && n == 0)
-		f->flags ^= FLAG_HASH;
-	else if (f->flags & FLAG_HASH)
-		(nlen += 2, f->prec += 2);
 	if (f->flags & FLAG_MINUS)
-		output_left(num, f, nlen, &len);
+		output_left(num, f, &len);
 	else
-		output_right(num, f, nlen, &len);
+		output_right(num, f, &len);
 	return (free(num), len);
 }

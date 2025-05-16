@@ -36,7 +36,7 @@ void	f_parse_flags(const char *fmt, unsigned int *i, t_fmt *f)
 			f->flags += FLAG_HASH;
 		(*i)++;
 	}
-	if (FLAG_MINUS)
+	if (f->flags & FLAG_MINUS)
 		f->flags ^= FLAG_ZERO;
 }
 
@@ -48,7 +48,7 @@ void	f_parse_width_prec(const char *fmt, unsigned int *i, t_fmt *f)
 		(*i)++;
 		f->flags += FLAG_DOT;
 		f->prec = atoi_move(fmt, i);
-		if (f->prec < 0)
+		if (f->prec == 0)
 			f->flags ^= FLAG_DOT;
 	}
 }
@@ -71,6 +71,6 @@ int	dispatch(t_fmt *f, va_list *ap)
 	if (f->spec == 'X')
 		return (handle_uint((unsigned long)va_arg(*ap, unsigned), f, 16));
 	if (f->spec == '%')
-		return (handle_str("%", f));
+		return (handle_str("%%", f));
 	return (0);
 }

@@ -5,7 +5,8 @@ AR		= ar rcs
 
 SRCS := srcs/core/ft_format.c srcs/core/ft_printf.c \
 srcs/handle/handle.c srcs/handle/output.c \
-srcs/libft/libft.c srcs/utils/ft_utils.c
+srcs/libft/libft.c srcs/utils/ft_utils.c \
+srcs/handle/ready.c
 
 OBJS := $(SRCS:.c=.o)
 

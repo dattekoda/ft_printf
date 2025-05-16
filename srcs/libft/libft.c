@@ -56,3 +56,22 @@ char	*ft_strchr(const char *s, int c)
 		return ((char *)s);
 	return (NULL);
 }
+
+char	*ft_strjoin(const char *s1, const char *s2)
+{
+	char	*join;
+	size_t	len1;
+	size_t	len2;
+
+	if (!s1 && !s2)
+		return (NULL);
+	len1 = ft_strlen(s1);
+	len2 = ft_strlen(s2);
+	join = malloc(len1 + len2 + 1);
+	if (!join)
+		return (NULL);
+	ft_strlcpy(join, s1, len1 + 1);
+	ft_strlcpy(join + len1, s2, len2 + 1);
+	return (join);
+}
+

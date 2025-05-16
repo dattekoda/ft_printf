@@ -1,5 +1,13 @@
 {
 	"files.associations": {
-		"libft.h": "c"
+		"libft.h": "c",
+		"ft_handle.h": "c",
+		"cmath": "c",
+		"compare": "c",
+		"concepts": "c",
+		"exception": "c",
+		"type_traits": "c",
+		"limits": "c",
+		"typeinfo": "c"
 	}
 }

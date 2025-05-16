@@ -1,5 +1,5 @@
 NAME	= ft_printf.a
-CC		= clang
+CC		= cc
 CFLAGS	= -Wall -Wextra -Werror -Iincludes
 AR		= ar rcs
 

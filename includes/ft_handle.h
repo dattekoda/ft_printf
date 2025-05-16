@@ -23,9 +23,9 @@ int		ft_putstr_len(const char* s, int *len);
 int		print_num_prefix(long sign, t_fmt *f, int *len);
 int		handle_char(char c, const t_fmt *f);
 int		handle_str(char *s, const t_fmt *f);
-int		handle_uint(unsigned long n, const t_fmt *f, unsigned base);
+int		handle_uint(unsigned long n, t_fmt *f, unsigned base);
 int		handle_int(const char *s, const t_fmt *f);
-void	output_left(const char *s, const t_fmt *f, int nlen, int *len);
-void	output_right(const char *s, const t_fmt *f, int nlen, int *len);
+void	output_left(char *s, const t_fmt *f, int nlen, int *len);
+void	output_right(char *s, const t_fmt *f, int nlen, int *len);
 
 #endif

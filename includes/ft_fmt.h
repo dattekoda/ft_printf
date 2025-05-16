@@ -17,6 +17,7 @@
 # include <stdarg.h>
 # include <stdint.h>
 # include <unistd.h>
+# include <stdio.h>
 
 # define FLAG_ZERO	0x01 //ビットマスクでフラグ設定
 # define FLAG_MINUS	0x02
@@ -36,6 +37,6 @@ typedef struct s_fmt //フォーマット解析用構造体
 void	f_init(t_fmt *fmt);
 void	f_parse_flags(const char *fmt, unsigned int *i, t_fmt *f);
 void	f_parse_width_prec(const char *fmt, unsigned int *i, t_fmt *f);
-int		dispatch(const t_fmt *fmt, va_list *ap);
+int		dispatch(t_fmt *fmt, va_list *ap);
  
 #endif

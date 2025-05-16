@@ -1,34 +1,15 @@
 #include "ft_fmt.h"
 #include "ft_handle.h"
+#include "libft.h"
 
-static char	*ft_strchr(const char *s, int c)
+static	int	atoi_move(const char *s, unsigned int *i)
 {
-	if (!s)
-		return (NULL);
-	while (*s)
-	{
-		if (*s == (char)c)
-			return ((char *)s);
-		s++;
-	}
-	if ((char)c == '\0')
-		return ((char *)s);
-	return (NULL);
-}
+	int	num;
 
-static int	atoi_move(const char *fmt, unsigned int *i)
-{
-	int	n;
-
-	n = 0;
-	if (!('0' <= fmt[*i] && fmt[*i] <= '9'))
-		return (-1);
-	while ('0' <= fmt[*i] && fmt[*i] <= '9')
-	{
-		n = n * 10 + (fmt[*i] - '0');
-		(*i)++;
-	}
-	return (n);
+	num = 0;
+	while (s[*i] && ('0' <= s[*i] && s[*i] <= '9'))
+		num = num * 10 + (s[(*i)++] - '0');
+	return (num);
 }
 
 void	f_init(t_fmt	*f)
@@ -72,22 +53,23 @@ void	f_parse_width_prec(const char *fmt, unsigned int *i, t_fmt *f)
 	}
 }
 
-int	dispatch(const t_fmt *f, va_list *ap)
+int	dispatch(t_fmt *f, va_list *ap)
 {
 	if (f->spec == 'c')
 		return (handle_char((char)va_arg(*ap, int), f));
 	if (f->spec == 's')
 		return (handle_str(va_arg(*ap, char *), f));
-	// if (f->spec == 'p')
-	// 	return (handle_uint(va_arg(*ap, unsigned), f, 16));
+	if (f->spec == 'p')
+		return (f->flags += FLAG_HASH
+			, (handle_uint((unsigned long)va_arg(*ap, void *), f, 16)));
 	// if (f->spec == 'd' || f->spec == 'i')
 	// 	return (handle_int);
 	if (f->spec == 'u')
-		return (handle_uint(va_arg(*ap, unsigned), f, 10));
+		return (handle_uint((unsigned long)va_arg(*ap, unsigned), f, 10));
 	if (f->spec == 'x')
-		return (handle_uint(va_arg(*ap, unsigned), f, 16));
+		return (handle_uint((unsigned long)va_arg(*ap, unsigned), f, 16));
 	if (f->spec == 'X')
-		return (handle_uint(va_arg(*ap, unsigned), f, 16));
+		return (handle_uint((unsigned long)va_arg(*ap, unsigned), f, 16));
 	if (f->spec == '%')
 		return (handle_str("%", f));
 	return (0);

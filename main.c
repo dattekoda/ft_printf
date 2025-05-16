@@ -2,6 +2,7 @@
 #include "ft_printf.h"
 int	main(void)
 {
-	printf("\ntotal = %d\n", ft_printf("%#10.7x", 79123));
-	printf("\ntotal = %d\n", printf("%#10.7x", 79123));
+	char	*s = "hello";
+	printf("\ntotal = %d\n", ft_printf("%20.13p", s));
+	printf("\ntotal = %d\n", printf("%20.13p", s));
 }

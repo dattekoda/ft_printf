@@ -41,3 +41,18 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 		slen++;
 	return (slen);
 }
+
+char	*ft_strchr(const char *s, int c)
+{
+	if (!s)
+		return (NULL);
+	while (*s)
+	{
+		if (*s == (char)c)
+			return ((char *)s);
+		s++;
+	}
+	if ((char)c == '\0')
+		return ((char *)s);
+	return (NULL);
+}

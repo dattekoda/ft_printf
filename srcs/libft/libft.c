@@ -57,21 +57,20 @@ char	*ft_strchr(const char *s, int c)
 	return (NULL);
 }
 
-char	*ft_strjoin(const char *s1, const char *s2)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	char	*join;
-	size_t	len1;
-	size_t	len2;
+	size_t	dst_len;
+	size_t	src_len;
+	size_t	i;
 
-	if (!s1 && !s2)
-		return (NULL);
-	len1 = ft_strlen(s1);
-	len2 = ft_strlen(s2);
-	join = malloc(len1 + len2 + 1);
-	if (!join)
-		return (NULL);
-	ft_strlcpy(join, s1, len1 + 1);
-	ft_strlcpy(join + len1, s2, len2 + 1);
-	return (join);
+	dst_len = 0;
+	while (dst[dst_len] && dst_len < size)
+		dst_len++;
+	src_len = ft_strlen(src);
+	i = -1;
+	while (src[++i] && dst_len + i + 1 < size)
+		dst[dst_len + i] = src[i];
+	dst[dst_len + i] = '\0';
+	return (dst_len + src_len);
 }
 

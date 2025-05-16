@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_handle.h                                      :+:      :+:    :+:   */
+/*   ft_handle.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: khanadat <khanadat@student.42tokyo.jp>     #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -17,8 +17,10 @@
 # include <stddef.h>
 # include "ft_fmt.h"
 
+int		max(int a, int b);
+int		count_ditit(unsigned long n, unsigned base);
 void	ft_putnchar(char c, int n, int *len);
-char	*ft_utoa_base(unsigned long n, const t_fmt *f, unsigned base);
+void	ft_utoa_base(unsigned long n, t_fmt *f, unsigned base, char *num);
 int		ft_putstr_len(const char* s, int *len);
 int		print_num_prefix(long sign, t_fmt *f, int *len);
 int		handle_char(char c, const t_fmt *f);

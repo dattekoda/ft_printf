@@ -32,6 +32,7 @@ typedef struct s_fmt //フォーマット解析用構造体
 	int			width;
 	int			prec;
 	char		spec;
+	int			len;
 }	t_fmt;
 
 void	f_init(t_fmt *fmt);

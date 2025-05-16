@@ -1,6 +1,23 @@
 #include "ft_handle.h"
 #include "libft.h"
 
+int	max(int a, int b)
+{
+	if (a > b)
+		return (a);
+	return (b);
+}
+
+int	count_ditit(unsigned long n, unsigned base)
+{
+	int	count;
+
+	count = 0;
+	while (n > 0)
+		(n /= base, count++);
+	return (count);
+}
+
 void	ft_putnchar(char c, int n, int *len)
 {
 	while (n--)
@@ -17,17 +34,15 @@ int	ft_putstr_len(const char* s, int *len)
 	return (start - *len);
 }
 
-char *ft_utoa_base(unsigned long n, const t_fmt *f, unsigned base)
+void	ft_utoa_base(unsigned long n, t_fmt *f, unsigned base, char *num)
 {
-	char	num[32];
 	char	base_set[17];
 	int		i;
 
 	ft_strlcpy(base_set, "0123456789abcdef", 17);
 	if (f->spec == 'X')
 		ft_strlcpy(base_set, "0123456789ABCDEF", 17);
-	i = 31;
-	num[31] = '\0';
+	i = f->len;
 	if (n == 0)
 		num[--i] = '0';
 	while (n > 0)
@@ -35,5 +50,13 @@ char *ft_utoa_base(unsigned long n, const t_fmt *f, unsigned base)
 		num[--i] = base_set[n % base];
 		n /= base;
 	}
-	return (ft_strdup(num + i));
+	if (f->flags & FLAG_HASH && n != 0)
+	{
+		if (f->spec == 'X')
+			num[--i] = 'X';
+		else
+			num[--i] = 'x';
+	}
+	while (0 < i)
+		num[--i] = '0';
 }

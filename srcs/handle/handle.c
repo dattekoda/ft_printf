@@ -46,8 +46,8 @@ int	handle_uint(unsigned long n, t_fmt *f, unsigned base)
 	num = ready_uint(n, f, base);
 	if (!num)
 		return (0);
-	printf("f->len: %d\n", f->len);
-	printf("f->width: %d\n", f->width);
+	// printf("f->len  : %d\n", f->len);
+	// printf("f->width: %d\n", f->width);
 	if (f->flags & FLAG_MINUS)
 		output_left(num, f, &len);
 	else

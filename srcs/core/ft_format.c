@@ -18,6 +18,7 @@ void	f_init(t_fmt	*f)
 	f->width = 0;
 	f->prec = 0;
 	f->spec = '\0';
+	f->len = 0;
 }
 
 void	f_parse_flags(const char *fmt, unsigned int *i, t_fmt *f)
@@ -25,15 +26,15 @@ void	f_parse_flags(const char *fmt, unsigned int *i, t_fmt *f)
 	while (ft_strchr("-+ 0#", fmt[*i]))
 	{
 		if (fmt[*i] == '-')
-			f->flags += FLAG_MINUS;
+			f->flags |= FLAG_MINUS;
 		else if (fmt[*i] == '+')
-			f->flags += FLAG_PLUS;
+			f->flags |= FLAG_PLUS;
 		else if (fmt[*i] == ' ')
-			f->flags += FLAG_SPACE;
+			f->flags |= FLAG_SPACE;
 		else if (fmt[*i] == '0')
-			f->flags += FLAG_ZERO;
+			f->flags |= FLAG_ZERO;
 		else if (fmt[*i] == '#')
-			f->flags += FLAG_HASH;
+			f->flags |= FLAG_HASH;
 		(*i)++;
 	}
 	if (f->flags & FLAG_MINUS)
@@ -48,8 +49,8 @@ void	f_parse_width_prec(const char *fmt, unsigned int *i, t_fmt *f)
 		(*i)++;
 		f->flags += FLAG_DOT;
 		f->prec = atoi_move(fmt, i);
-		if (f->prec == 0)
-			f->flags ^= FLAG_DOT;
+		// if (f->prec == 0)
+		// 	f->flags ^= FLAG_DOT;
 	}
 }
 

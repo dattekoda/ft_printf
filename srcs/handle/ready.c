@@ -5,7 +5,7 @@ char	*ready_uint(unsigned long n, t_fmt *f, unsigned base)
 {
 	char	*num;
 
-	if (f->flags & FLAG_DOT && f->prec == 0 && n == 0)
+	if (f->flags & FLAG_DOT && f->prec == 0 && n == 0 && !(f->width))
 		num = ft_strdup("");
 	else if (f->spec == 'p' && n == 0)
 		num = ft_strdup("(nil)");

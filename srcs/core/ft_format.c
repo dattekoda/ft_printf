@@ -61,16 +61,16 @@ int	dispatch(t_fmt *f, va_list *ap)
 	if (f->spec == 's')
 		return (handle_str(va_arg(*ap, char *), f));
 	if (f->spec == 'p')
-		return (f->flags += FLAG_HASH
+		return (f->flags |= FLAG_HASH
 			, (handle_uint((unsigned long)va_arg(*ap, void *), f, 16)));
-	// if (f->spec == 'd' || f->spec == 'i')
-	// 	return (handle_int);
+	if (f->spec == 'd' || f->spec == 'i')
+		return (handle_sint((long)va_arg(*ap, int), f));
 	if (f->spec == 'u')
-		return (handle_uint((unsigned long)va_arg(*ap, unsigned), f, 10));
+		return (handle_uint((unsigned long)va_arg(*ap, unsigned int), f, 10));
 	if (f->spec == 'x')
-		return (handle_uint((unsigned long)va_arg(*ap, unsigned), f, 16));
+		return (handle_uint((unsigned long)va_arg(*ap, unsigned int), f, 16));
 	if (f->spec == 'X')
-		return (handle_uint((unsigned long)va_arg(*ap, unsigned), f, 16));
+		return (handle_uint((unsigned long)va_arg(*ap, unsigned int), f, 16));
 	if (f->spec == '%')
 		return (handle_str("%%", f));
 	return (0);

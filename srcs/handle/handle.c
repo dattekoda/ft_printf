@@ -1,10 +1,6 @@
 #include "ft_handle.h"
 #include "libft.h"
 
-// int print_num_prefix(long sign, t_fmt *f, int *len)
-// {
-// }
-
 int	handle_char(char c, const t_fmt *f)
 {
 	int	len;
@@ -37,7 +33,7 @@ int	handle_str(char *s, const t_fmt *f)
 	return (len);
 }
 
-int	handle_uint(unsigned long n, t_fmt *f, unsigned base)
+int	handle_uint(unsigned long n, t_fmt *f, unsigned int base)
 {
 	char	*num;
 	int		len;
@@ -45,9 +41,23 @@ int	handle_uint(unsigned long n, t_fmt *f, unsigned base)
 	len = 0;
 	num = ready_uint(n, f, base);
 	if (!num)
-		return (0);
-	// printf("f->len  : %d\n", f->len);
-	// printf("f->width: %d\n", f->width);
+		return (-1);
+	if (f->flags & FLAG_MINUS)
+		output_left(num, f, &len);
+	else
+		output_right(num, f, &len);
+	return (free(num), len);
+}
+
+int	handle_sint(long n, t_fmt *f)
+{
+	char	*num;
+	int		len;
+
+	len = 0;
+	num = ready_sint(n, f);
+	if (!num)
+		return (-1);
 	if (f->flags & FLAG_MINUS)
 		output_left(num, f, &len);
 	else

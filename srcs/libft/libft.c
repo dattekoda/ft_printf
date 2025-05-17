@@ -1,5 +1,12 @@
 #include "libft.h"
 
+int	ft_max(int a, int b)
+{
+	if (a > b)
+		return (a);
+	return (b);
+}
+
 size_t ft_strlen(const char *s)
 {
 	const char *h;

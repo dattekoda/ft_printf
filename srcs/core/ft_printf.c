@@ -7,6 +7,7 @@ int	ft_printf(const char *fmt, ...)
 	unsigned int	total;
 	va_list			ap;
 	t_fmt			f;
+	int				d;
 
 	i = 0;
 	total = 0;
@@ -20,6 +21,9 @@ int	ft_printf(const char *fmt, ...)
 			f_parse_flags(fmt, &i, &f);
 			f_parse_width_prec(fmt, &i, &f);
 			f.spec = fmt[i];
+			d = dispatch(&f, &ap);
+			if (d == -1)
+				return (-1);
 			total += dispatch(&f, &ap);
 		}
 		else

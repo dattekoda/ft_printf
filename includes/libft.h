@@ -5,6 +5,7 @@
 # include <stddef.h>
 # include <stdlib.h>
 
+int		ft_max(int a, int b);
 size_t	ft_strlen(const char *s);
 char	*ft_strdup(const char *s);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);

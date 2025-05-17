@@ -1,24 +1,48 @@
 #include "ft_handle.h"
 #include "libft.h"
 
-char	*ready_uint(unsigned long n, t_fmt *f, unsigned base)
+char	*ready_uint(unsigned long n, t_fmt *f, unsigned int base)
 {
-	char	*num;
+	char	*ready;
 
 	if (f->flags & FLAG_DOT && f->prec == 0 && n == 0 && !(f->width))
-		num = ft_strdup("");
+		ready = ft_strdup("");
 	else if (f->spec == 'p' && n == 0)
-		num = ft_strdup("(nil)");
+		ready = ft_strdup("(nil)");
 	else
 	{
-		f->len = max(count_ditit(n, base), f->prec)
-			+ 2 * (f->flags & FLAG_HASH && n != 0);
-		num = malloc(f->len + 1);
-		if (!num)
+		f->len = 2 * (f->flags & FLAG_HASH && n != 0 && f->spec != 'u')
+			+ ft_max(count_digit(n, base), f->prec);
+		ready = malloc(f->len + 1);
+		if (!ready)
 			return (NULL);
-		num[f->len] = '\0';
-		ft_utoa_base(n, f, base, num);
+		ready[f->len] = '\0';
+		ft_utoa_base(n, f, base, ready);
 	}
-	return (num);
+	return (ready);
 }
 
+char	*ready_sint(long n, t_fmt *f)
+{
+	char	*ready;
+
+	if (f->flags & FLAG_DOT && f->prec == 0 && n == 0)
+	{
+		if (f->flags & FLAG_PLUS)
+			ready = ((f->len)++, ft_strdup("+"));
+		else
+			ready = ft_strdup("");
+	}
+	else
+	{
+		// printf("%d\n%d\n%d\n", f->flags & FLAG_PLUS || n < 0, count_digit(n, 10), f->prec);
+		f->len = (f->flags & FLAG_PLUS || n < 0)
+			+ ft_max(count_digit(n, 10), f->prec);
+		ready = malloc(f->len + 1);
+		if (!ready)
+			return (NULL);
+		ready[f->len] = '\0';
+		ft_sitoa(n, f, ready);
+	}
+	return (ready);
+}

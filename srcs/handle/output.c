@@ -17,10 +17,7 @@ void	output_right(char *s, const t_fmt *f, int *len)
 	int	nlen;
 
 	nlen = ft_strlen(s);
-	if (f->width > f->len && (f->flags & FLAG_ZERO)
-		&& !(f->flags & FLAG_DOT))
-		ft_putnchar('0', f->width - f->len, len);
-	else if (f->width > f->len)
+	if (f->width > f->len)
 		ft_putnchar(' ', f->width - f->len, len);
 	ft_putstr_len(s, len);
 }

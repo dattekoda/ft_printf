@@ -19,9 +19,9 @@ int	handle_str(char *s, const t_fmt *f)
 	int	len;
 	int	slen;
 
-	len = 0;
 	if (!s)
-		s = ft_strdup("(null)");
+		return (handle_null(f));
+	len = 0;
 	slen = (int)ft_strlen(s);
 	if (f->flags & FLAG_DOT && f->prec < slen)
 		slen = f->prec;
@@ -30,6 +30,24 @@ int	handle_str(char *s, const t_fmt *f)
 	len += write(1, s, slen);
 	if (f->width > slen && f->flags & FLAG_MINUS)
 		ft_putnchar (' ', f->width - slen, &len);
+	return (len);
+}
+
+int	handle_null(const t_fmt *f)
+{
+	int	len;
+
+	len = 0;
+	if (6 <= f->prec || !(f->flags & FLAG_DOT))
+	{
+		if (6 <= f->width && !(f->flags & FLAG_MINUS))
+			ft_putnchar(' ', f->width - 6, &len);
+		len += write(1, "(null)", 6);
+		if (6 <= f->width && f->flags & FLAG_MINUS)
+			ft_putnchar(' ', f->width - 6, &len);
+	}
+	else
+		ft_putnchar(' ', f->width, &len);
 	return (len);
 }
 

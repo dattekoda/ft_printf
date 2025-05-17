@@ -1,25 +1,10 @@
-
-
 #include "ft_handle.h"
 #include "libft.h"
 
-int	count_digit(long n, unsigned int base)
-{
-	int	count;
-
-	count = 0;
-	if (n == 0)
-		return (1);
-	while (n != 0)
-	{
-		n /= base;
-		count++;
-	}
-	return (count);
-}
-
 void	ft_putnchar(char c, int n, int *len)
 {
+	if (n == 0)
+		return ;
 	while (n--)
 		*len += write(1, &c, 1);
 }

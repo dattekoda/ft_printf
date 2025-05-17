@@ -23,21 +23,21 @@ void	f_init(t_fmt	*f)
 
 void	f_parse_flags(const char *fmt, unsigned int *i, t_fmt *f)
 {
-	while (ft_strchr("-+ 0#", fmt[*i]))
+	while (ft_strchr("0-+ #", fmt[*i]))
 	{
-		if (fmt[*i] == '-')
+		if (fmt[*i] == '0')
+			f->flags |= FLAG_ZERO;
+		else if (fmt[*i] == '-')
 			f->flags |= FLAG_MINUS;
 		else if (fmt[*i] == '+')
 			f->flags |= FLAG_PLUS;
 		else if (fmt[*i] == ' ')
 			f->flags |= FLAG_SPACE;
-		else if (fmt[*i] == '0')
-			f->flags |= FLAG_ZERO;
 		else if (fmt[*i] == '#')
 			f->flags |= FLAG_HASH;
 		(*i)++;
 	}
-	if (f->flags & FLAG_MINUS)
+	if (f->flags & FLAG_MINUS && f->flags & FLAG_ZERO)
 		f->flags ^= FLAG_ZERO;
 }
 
@@ -47,10 +47,8 @@ void	f_parse_width_prec(const char *fmt, unsigned int *i, t_fmt *f)
 	if (fmt[*i] == '.')
 	{
 		(*i)++;
-		f->flags += FLAG_DOT;
+		f->flags |= FLAG_DOT;
 		f->prec = atoi_move(fmt, i);
-		// if (f->prec == 0)
-		// 	f->flags ^= FLAG_DOT;
 	}
 }
 
@@ -72,6 +70,6 @@ int	dispatch(t_fmt *f, va_list *ap)
 	if (f->spec == 'X')
 		return (handle_uint((unsigned long)va_arg(*ap, unsigned int), f, 16));
 	if (f->spec == '%')
-		return (handle_str("%%", f));
+		return (write(1, "%", 1));
 	return (0);
 }

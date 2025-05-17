@@ -1,5 +1,12 @@
 #include "libft.h"
 
+int	ft_min(int a, int b)
+{
+	if (a < b)
+		return (a);
+	return (b);
+}
+
 int	ft_max(int a, int b)
 {
 	if (a > b)
@@ -7,9 +14,9 @@ int	ft_max(int a, int b)
 	return (b);
 }
 
-size_t ft_strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
-	const char *h;
+	const char	*h;
 
 	if (!s)
 		return (0);
@@ -80,4 +87,3 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	dst[dst_len + i] = '\0';
 	return (dst_len + src_len);
 }
-

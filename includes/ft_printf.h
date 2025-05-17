@@ -16,7 +16,9 @@
 # include <stdarg.h>
 # include <stddef.h>
 # include <unistd.h>
+# include "ft_fmt.h"
 
-int		ft_printf(const char *format, ...);
+int	ft_printf(const char *format, ...);
+int	ft_vprintf(const char *fmt, va_list *ap, unsigned int *i, t_fmt *f);
 
 #endif

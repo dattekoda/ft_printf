@@ -1,5 +1,4 @@
 #include "ft_printf.h"
-#include "ft_fmt.h"
 
 int	ft_printf(const char *fmt, ...)
 {
@@ -7,7 +6,7 @@ int	ft_printf(const char *fmt, ...)
 	unsigned int	total;
 	va_list			ap;
 	t_fmt			f;
-	int				d;
+	int				tmp;
 
 	i = 0;
 	total = 0;
@@ -16,15 +15,10 @@ int	ft_printf(const char *fmt, ...)
 	{
 		if (fmt[i] == '%')
 		{
-			i++;
-			f_init(&f);
-			f_parse_flags(fmt, &i, &f);
-			f_parse_width_prec(fmt, &i, &f);
-			f.spec = fmt[i];
-			d = dispatch(&f, &ap);
-			if (d == -1)
+			tmp = ft_vprintf(fmt, &ap, &i, &f);
+			if (tmp == -1)
 				return (-1);
-			total += dispatch(&f, &ap);
+			total += tmp;
 		}
 		else
 			total += write(1, &fmt[i], 1);
@@ -32,4 +26,14 @@ int	ft_printf(const char *fmt, ...)
 	}
 	va_end(ap);
 	return (total);
+}
+
+int	ft_vprintf(const char *fmt, va_list *ap, unsigned int *i, t_fmt *f)
+{
+	(*i)++;
+	f_init(f);
+	f_parse_flags(fmt, i, f);
+	f_parse_width_prec(fmt, i, f);
+	f->spec = fmt[(*i)];
+	return (dispatch(f, ap));
 }

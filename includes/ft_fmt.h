@@ -17,6 +17,7 @@
 # include <stdarg.h>
 # include <stdint.h>
 # include <unistd.h>
+# include <stdio.h>
 
 # define FLAG_ZERO	0b00000001 //ビットマスクでフラグ設定
 # define FLAG_MINUS	0b00000010

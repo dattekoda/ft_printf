@@ -5,6 +5,7 @@
 # include <stddef.h>
 # include <stdlib.h>
 
+int		ft_min(int a, int b);
 int		ft_max(int a, int b);
 size_t	ft_strlen(const char *s);
 char	*ft_strdup(const char *s);

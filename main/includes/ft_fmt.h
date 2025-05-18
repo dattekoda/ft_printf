@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_fmt.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khanadat <khanadat@student.42tokyo.jp>     #+#  +:+       +#+        */
+/*   By: khanadat <khanadat@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-05-12 08:53:17 by khanadat          #+#    #+#             */
-/*   Updated: 2025-05-12 08:53:17 by khanadat         ###   ########.jp       */
+/*   Created: 2025/05/12 08:53:17 by khanadat          #+#    #+#             */
+/*   Updated: 2025/05/18 12:16:22 by khanadat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@
 # define FLAG_HASH	0b00010000
 # define FLAG_DOT	0b00100000
 
-typedef struct s_fmt //フォーマット解析用構造体
+typedef struct s_fmt
 {
-	uint8_t 	flags;
+	uint8_t		flags;
 	int			width;
 	int			prec;
 	char		spec;
@@ -39,5 +39,5 @@ void	f_init(t_fmt *fmt);
 void	f_parse_flags(const char *fmt, unsigned int *i, t_fmt *f);
 void	f_parse_width_prec(const char *fmt, unsigned int *i, t_fmt *f);
 int		dispatch(t_fmt *fmt, va_list *ap);
- 
+
 #endif

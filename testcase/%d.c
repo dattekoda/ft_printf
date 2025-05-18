@@ -33,6 +33,23 @@ int	main(void)
 	// printf("|% +010.0d|\n", 1074329);
 	// ft_printf("|% +10.0d|\n", 1074329);
 
-	printf("|%05i|\n", 43);
-	ft_printf("|%05i|\n", 43);
+	// printf("|%05i|\n", 43);
+	// ft_printf("|%05i|\n", 43);
+
+	// printf("|%05i|\n", -43);
+	// ft_printf("|%05i|\n", -43);
+
+	// printf("|%05u|\n", 43);
+	// ft_printf("|%05u|\n", 43);
+
+	// printf("|%02.6i|\n", 4312);
+	// ft_printf("|%02.6i|\n", 4312);
+	// printf("|%06.2i|\n", 4312);
+	// ft_printf("|%06.2i|\n", 4312);
+
+	printf("|%07i|\n", -54);
+	ft_printf("|%07i|\n", -54);
+
+	printf("|%0d|\n", 0);
+	ft_printf("|%0d|\n", 0);
 }

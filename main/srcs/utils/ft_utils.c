@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_utils.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: khanadat <khanadat@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/18 12:17:40 by khanadat          #+#    #+#             */
+/*   Updated: 2025/05/18 12:17:41 by khanadat         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_handle.h"
 #include "libft.h"
 
@@ -28,7 +40,7 @@ void	ft_utoa_base(unsigned long n, t_fmt *f, unsigned int base, char *num)
 	if (f->spec == 'X')
 		ft_strlcpy(base_set, "0123456789ABCDEF", 17);
 	i = f->len;
-	if (n == 0)
+	if (n == 0 && f->prec != 0)
 		num[--i] = '0';
 	while (n > 0)
 	{

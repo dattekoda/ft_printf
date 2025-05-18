@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_format.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: khanadat <khanadat@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/18 10:29:12 by khanadat          #+#    #+#             */
+/*   Updated: 2025/05/18 11:35:34 by khanadat         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_fmt.h"
 #include "ft_handle.h"
 #include "libft.h"
@@ -66,9 +78,9 @@ int	dispatch(t_fmt *f, va_list *ap)
 	if (f->spec == 'u')
 		return (handle_uint((unsigned long)va_arg(*ap, unsigned int), f, 10));
 	if (f->spec == 'x')
-		return (handle_uint((unsigned long)va_arg(*ap, unsigned int), f, 16));
+		return (handle_uint((unsigned int)va_arg(*ap, unsigned int), f, 16));
 	if (f->spec == 'X')
-		return (handle_uint((unsigned long)va_arg(*ap, unsigned int), f, 16));
+		return (handle_uint((unsigned int)va_arg(*ap, unsigned int), f, 16));
 	if (f->spec == '%')
 		return (write(1, "%", 1));
 	return (0);

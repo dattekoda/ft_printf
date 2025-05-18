@@ -40,4 +40,23 @@ int	main(void)
 
 	printf("real: %d\n",    printf("|%05.3u|\n", 1) - 3);
     printf("ft  : %d\n", ft_printf("|%05.3u|\n", 1) - 3);
+
+	printf("|%06.u|\n", 4312);
+	ft_printf("|%06.u|\n", 4312);
+	printf("|%03.3u|\n", 4312);
+	ft_printf("|%03.3u|\n", 4312);
+	printf("|%5.0u|\n", 0);
+	ft_printf("|%5.0u|\n", 0);
+	printf("|%08.3x|\n", 8375);
+	ft_printf("|%08.3x|\n", 8375);
+	printf("|%-5.0x|\n", 0);
+	ft_printf("|%-5.0x|\n", 0);
+	printf("|%x|\n", 4294967295u);
+	ft_printf("|%x|\n", 4294967295u);
+
+	printf("|%-3u|\n", 0);
+	ft_printf("|%-3u|\n", 0);
+
+	printf("|a%ub%uc%ud|\n", 0, 55555, 100000);
+	ft_printf("|a%ub%uc%ud|\n", 0, 55555, 100000);
 }

@@ -6,7 +6,7 @@
 /*   By: khanadat <khanadat@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 12:17:40 by khanadat          #+#    #+#             */
-/*   Updated: 2025/05/18 19:25:28 by khanadat         ###   ########.fr       */
+/*   Updated: 2025/05/18 20:43:56 by khanadat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ ssize_t	ft_putnchar(char c, int n, int *len)
 {
 	ssize_t	ret;
 
+	ret = 0;
 	if (n == 0)
 		return (0);
 	while (n--)
@@ -33,6 +34,7 @@ ssize_t	ft_putstr_len(const char *s, int *len)
 {
 	ssize_t	ret;
 
+	ret = 0;
 	while (*s)
 	{
 		ret = write(1, s++, 1);

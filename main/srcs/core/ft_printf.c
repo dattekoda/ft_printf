@@ -6,7 +6,7 @@
 /*   By: khanadat <khanadat@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 10:29:16 by khanadat          #+#    #+#             */
-/*   Updated: 2025/05/18 10:29:17 by khanadat         ###   ########.fr       */
+/*   Updated: 2025/05/18 20:46:04 by khanadat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,12 @@ int	ft_printf(const char *fmt, ...)
 	while (fmt && fmt[i])
 	{
 		if (fmt[i] == '%')
-		{
 			tmp = ft_vprintf(fmt, &ap, &i, &f);
-			if (tmp == -1)
-				return (-1);
-			total += tmp;
-		}
 		else
-			total += write(1, &fmt[i], 1);
+			tmp = write(1, &fmt[i], 1);
+		if (tmp == -1)
+			return (-1);
+		total += tmp;
 		i++;
 	}
 	va_end(ap);

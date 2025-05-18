@@ -6,29 +6,41 @@
 /*   By: khanadat <khanadat@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 12:17:40 by khanadat          #+#    #+#             */
-/*   Updated: 2025/05/18 12:17:41 by khanadat         ###   ########.fr       */
+/*   Updated: 2025/05/18 19:25:28 by khanadat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_handle.h"
 #include "libft.h"
 
-void	ft_putnchar(char c, int n, int *len)
+ssize_t	ft_putnchar(char c, int n, int *len)
 {
+	ssize_t	ret;
+
 	if (n == 0)
-		return ;
+		return (0);
 	while (n--)
-		*len += write(1, &c, 1);
+	{
+		ret = write(1, &c, 1);
+		if (ret == -1)
+			return (-1);
+		*len += ret;
+	}
+	return (0);
 }
 
-int	ft_putstr_len(const char *s, int *len)
+ssize_t	ft_putstr_len(const char *s, int *len)
 {
-	int	start;
+	ssize_t	ret;
 
-	start = *len;
 	while (*s)
-		*len += write(1, s++, 1);
-	return (start - *len);
+	{
+		ret = write(1, s++, 1);
+		if (ret == -1)
+			return (-1);
+		*len += ret;
+	}
+	return (0);
 }
 
 void	ft_utoa_base(unsigned long n, t_fmt *f, unsigned int base, char *num)
@@ -38,7 +50,7 @@ void	ft_utoa_base(unsigned long n, t_fmt *f, unsigned int base, char *num)
 
 	ft_strlcpy(base_set, "0123456789abcdef", 17);
 	if (f->spec == 'X')
-		ft_strlcpy(base_set, "0123456789ABCDEF", 17);
+		ft_strlcpy(base_set + 10, "ABCDEF", 7);
 	i = f->len;
 	if (n == 0 && f->prec != 0)
 		num[--i] = '0';

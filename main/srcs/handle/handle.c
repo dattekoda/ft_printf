@@ -19,6 +19,7 @@ int	handle_char(char c, const t_fmt *f)
 	int	ret;
 
 	len = 0;
+	ret = 0;
 	if (f->width > 1 && !(f->flags & FLAG_MINUS))
 		ret = ft_putnchar(' ', f->width - 1, &len);
 	if (ret == -1)
@@ -40,6 +41,7 @@ int	handle_str(char *s, const t_fmt *f)
 	int		slen;
 	ssize_t	ret;
 
+	ret = 0;
 	if (!s)
 		return (handle_null(f));
 	len = 0;
@@ -67,6 +69,7 @@ int	handle_null(const t_fmt *f)
 	ssize_t	ret;
 
 	len = 0;
+	ret = 0;
 	if (6 <= f->prec || !(f->flags & FLAG_DOT))
 	{
 		if (6 <= f->width && !(f->flags & FLAG_MINUS))
@@ -93,8 +96,9 @@ int	handle_uint(unsigned long n, t_fmt *f, unsigned int base)
 	int		len;
 	ssize_t	ret;
 
-	len = 0;
 	num = ready_uint(n, f, base);
+	len = 0;
+	ret = 0;
 	if (!num)
 		return (-1);
 	if (f->flags & FLAG_MINUS)
@@ -112,8 +116,9 @@ int	handle_sint(long n, t_fmt *f)
 	int		len;
 	ssize_t	ret;
 
-	len = 0;
 	num = ready_sint(n, f);
+	len = 0;
+	ret = 0;
 	if (!num)
 		return (-1);
 	if (f->flags & FLAG_MINUS)

@@ -14,6 +14,7 @@
 # define FT_HANDLE_H
 
 # include <stdlib.h>
+# include <stdbool.h>
 # include "ft_fmt.h"
 
 int		count_digit_p(uintptr_t n, unsigned int base);

@@ -47,13 +47,15 @@ ssize_t	ft_putstr_len(const char *s, int *len)
 
 void	ft_utoa_base(unsigned long n, t_fmt *f, unsigned int base, char *num)
 {
-	char	base_set[17];
-	int		i;
+	char			base_set[18];
+	int				i;
+	unsigned long	_n;
 
-	ft_strlcpy(base_set, "0123456789abcdef", 17);
+	ft_strlcpy(base_set, "0123456789abcdefx", 18);
 	if (f->spec == 'X')
-		ft_strlcpy(base_set + 10, "ABCDEF", 7);
+		ft_strlcpy(base_set + 10, "ABCDEFX", 8);
 	i = f->len;
+	_n = n;
 	if (n == 0 && f->prec != 0)
 		num[--i] = '0';
 	while (n > 0)
@@ -61,13 +63,9 @@ void	ft_utoa_base(unsigned long n, t_fmt *f, unsigned int base, char *num)
 		num[--i] = base_set[n % base];
 		n /= base;
 	}
-	if (f->flags & FLAG_HASH && num[i] != '0' && f->spec != 'u')
-	{
-		if (f->spec == 'X')
-			num[--i] = 'X';
-		else
-			num[--i] = 'x';
-	}
+	if ((f->flags & FLAG_HASH && _n != 0 && (f->spec != 'x' || f->spec != 'X'))
+		|| f->spec == 'p')
+		num[--i] = base_set[16];
 	while (0 < i)
 		num[--i] = '0';
 }

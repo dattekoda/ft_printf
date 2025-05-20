@@ -6,11 +6,11 @@
 /*   By: khanadat <khanadat@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 10:29:16 by khanadat          #+#    #+#             */
-/*   Updated: 2025/05/18 20:46:04 by khanadat         ###   ########.fr       */
+/*   Updated: 2025/05/20 15:37:25 by khanadat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
 int	ft_printf(const char *fmt, ...)
 {

@@ -6,12 +6,12 @@
 /*   By: khanadat <khanadat@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 12:12:20 by khanadat          #+#    #+#             */
-/*   Updated: 2025/05/18 12:17:25 by khanadat         ###   ########.fr       */
+/*   Updated: 2025/05/20 15:37:44 by khanadat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_handle.h"
-#include "libft.h"
+#include "../includes/ft_handle.h"
+#include "../includes/libft.h"
 
 int	count_digit_p(uintptr_t n, unsigned int base)
 {

@@ -6,11 +6,11 @@
 /*   By: khanadat <khanadat@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 12:10:07 by khanadat          #+#    #+#             */
-/*   Updated: 2025/05/18 12:17:05 by khanadat         ###   ########.fr       */
+/*   Updated: 2025/05/20 15:38:55 by khanadat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 int	ft_min(int a, int b)
 {

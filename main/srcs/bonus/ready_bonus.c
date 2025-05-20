@@ -6,12 +6,12 @@
 /*   By: khanadat <khanadat@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 10:28:57 by khanadat          #+#    #+#             */
-/*   Updated: 2025/05/18 12:12:15 by khanadat         ###   ########.fr       */
+/*   Updated: 2025/05/20 15:38:51 by khanadat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_handle.h"
-#include "libft.h"
+#include "../includes/ft_handle.h"
+#include "../includes/libft.h"
 
 char	*ready_uint(unsigned long n, t_fmt *f, unsigned int base)
 {

@@ -6,12 +6,12 @@
 /*   By: khanadat <khanadat@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 10:28:06 by khanadat          #+#    #+#             */
-/*   Updated: 2025/05/18 19:25:00 by khanadat         ###   ########.fr       */
+/*   Updated: 2025/05/20 15:37:56 by khanadat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_handle.h"
-#include "libft.h"
+#include "../includes/ft_handle.h"
+#include "../includes/libft.h"
 
 int	handle_char(char c, const t_fmt *f)
 {

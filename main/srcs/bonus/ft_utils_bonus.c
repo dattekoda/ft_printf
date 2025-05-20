@@ -6,12 +6,12 @@
 /*   By: khanadat <khanadat@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 12:17:40 by khanadat          #+#    #+#             */
-/*   Updated: 2025/05/18 20:43:56 by khanadat         ###   ########.fr       */
+/*   Updated: 2025/05/20 15:39:04 by khanadat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_handle.h"
-#include "libft.h"
+#include "../includes/ft_handle.h"
+#include "../includes/libft.h"
 
 ssize_t	ft_putnchar(char c, int n, int *len)
 {

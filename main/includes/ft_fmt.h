@@ -6,7 +6,7 @@
 /*   By: khanadat <khanadat@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 08:53:17 by khanadat          #+#    #+#             */
-/*   Updated: 2025/05/18 12:16:22 by khanadat         ###   ########.fr       */
+/*   Updated: 2025/05/20 15:07:15 by khanadat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,8 @@
 # include <stdarg.h>
 # include <stdint.h>
 # include <unistd.h>
-# include <stdio.h>
 
-# define FLAG_ZERO	0b00000001 //ビットマスクでフラグ設定
+# define FLAG_ZERO	0b00000001
 # define FLAG_MINUS	0b00000010
 # define FLAG_PLUS	0b00000100
 # define FLAG_SPACE	0b00001000

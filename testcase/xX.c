@@ -1,203 +1,206 @@
+#include "../main/includes/ft_printf.h"
+#include <stdio.h>
+
 int main(void) {
     ft_printf("%x\n", 0);
     printf("%x\n", 0);
-    ft_printf("%x\n", 0);ffff" */
+    ft_printf("%x\n", 0);
     printf("%x\n", (unsigned)-1U);
-    ft_printf("%x\n", 0);0" */
+    ft_printf("%x\n", 0);
     printf("%5x\n", 0);
-    ft_printf("%x\n", 0);fffff" */
+    ft_printf("%x\n", 0);
     printf("%5x\n", (unsigned)-1U);
-    ft_printf("%x\n", 0);" */
+    ft_printf("%x\n", 0);
     printf("%.3x\n", 0);
-    ft_printf("%x\n", 0);ffffff" */
+    ft_printf("%x\n", 0);
     printf("%.3x\n", (unsigned)-1U);
-    ft_printf("%x\n", 0);000" */
+    ft_printf("%x\n", 0);
     printf("%5.3x\n", 0);
-    ft_printf("%x\n", 0);fffffff" */
+    ft_printf("%x\n", 0);
     printf("%5.3x\n", (unsigned)-1U);
-    ft_printf("%x\n", 0);00" */
+    ft_printf("%x\n", 0);
     printf("%.5x\n", 0);
-    ft_printf("%x\n", 0);ffffff" */
+    ft_printf("%x\n", 0);
     printf("%.5x\n", (unsigned)-1U);
-    ft_printf("%x\n", 0);/
+    ft_printf("%x\n", 0);
     printf("%0x\n", 0);
-    ft_printf("%x\n", 0);fffff" */
+    ft_printf("%x\n", 0);
     printf("%0x\n", (unsigned)-1U);
-    ft_printf("%x\n", 0);00" */
+    ft_printf("%x\n", 0);
     printf("%05x\n", 0);
-    ft_printf("%x\n", 0);ffffff" */
+    ft_printf("%x\n", 0);
     printf("%05x\n", (unsigned)-1U);
-    ft_printf("%x\n", 0);0" */
+    ft_printf("%x\n", 0);
     printf("%0.3x\n", 0);
-    ft_printf("%x\n", 0);fffffff" */
+    ft_printf("%x\n", 0);
     printf("%0.3x\n", (unsigned)-1U);
-    ft_printf("%x\n", 0); 000" */
+    ft_printf("%x\n", 0);
     printf("%05.3x\n", 0);
-    ft_printf("%x\n", 0);ffffffff" */
+    ft_printf("%x\n", 0);
     printf("%05.3x\n", (unsigned)-1U);
-    ft_printf("%x\n", 0);000" */
+    ft_printf("%x\n", 0);
     printf("%0.5x\n", 0);
-    ft_printf("%x\n", 0);fffffff" */
+    ft_printf("%x\n", 0);
     printf("%0.5x\n", (unsigned)-1U);
-    ft_printf("%x\n", 0);/
+    ft_printf("%x\n", 0);
     printf("%#x\n", 0);
-    ft_printf("%x\n", 0);fffffff" */
+    ft_printf("%x\n", 0);
     printf("%#x\n", (unsigned)-1U);
-    ft_printf("%x\n", 0); 0" */
+    ft_printf("%x\n", 0);
     printf("%#5x\n", 0);
-    ft_printf("%x\n", 0);ffffffff" */
+    ft_printf("%x\n", 0);
     printf("%#5x\n", (unsigned)-1U);
-    ft_printf("%x\n", 0);0" */
+    ft_printf("%x\n", 0);
     printf("%#.3x\n", 0);
-    ft_printf("%x\n", 0);xffffffff" */
+    ft_printf("%x\n", 0);
     printf("%#.3x\n", (unsigned)-1U);
-    ft_printf("%x\n", 0); 000" */
+    ft_printf("%x\n", 0);
     printf("%#5.3x\n", 0);
-    ft_printf("%x\n", 0);0xffffffff" */
+    ft_printf("%x\n", 0);
     printf("%#5.3x\n", (unsigned)-1U);
-    ft_printf("%x\n", 0);000" */
+    ft_printf("%x\n", 0);
     printf("%#.5x\n", 0);
-    ft_printf("%x\n", 0);xffffffff" */
+    ft_printf("%x\n", 0);
     printf("%#.5x\n", (unsigned)-1U);
-    ft_printf("%x\n", 0);/
+    ft_printf("%x\n", 0);
     printf("%-x\n", 0);
-    ft_printf("%x\n", 0);fffff" */
+    ft_printf("%x\n", 0);
     printf("%-x\n", (unsigned)-1U);
-    ft_printf("%x\n", 0);  " */
+    ft_printf("%x\n", 0);
     printf("%-5x\n", 0);
-    ft_printf("%x\n", 0);ffffff" */
+    ft_printf("%x\n", 0);
     printf("%-5x\n", (unsigned)-1U);
-    ft_printf("%x\n", 0);0" */
+    ft_printf("%x\n", 0);
     printf("%-.3x\n", 0);
-    ft_printf("%x\n", 0);fffffff" */
+    ft_printf("%x\n", 0);
     printf("%-.3x\n", (unsigned)-1U);
-    ft_printf("%x\n", 0);00  " */
+    ft_printf("%x\n", 0);
     printf("%-5.3x\n", 0);
-    ft_printf("%x\n", 0);ffffffff" */
+    ft_printf("%x\n", 0);
     printf("%-5.3x\n", (unsigned)-1U);
-    ft_printf("%x\n", 0);000" */
+    ft_printf("%x\n", 0);
     printf("%-.5x\n", 0);
-    ft_printf("%x\n", 0);fffffff" */
+    ft_printf("%x\n", 0);
     printf("%-.5x\n", (unsigned)-1U);
-    ft_printf("%x\n", 0);*/
+    ft_printf("%x\n", 0);
     printf("%#0x\n", 0);
-    ft_printf("%x\n", 0);ffffffff" */
+    ft_printf("%x\n", 0);
     printf("%#0x\n", (unsigned)-1U);
-    ft_printf("%x\n", 0);000" */
+    ft_printf("%x\n", 0);
     printf("%#05x\n", 0);
-    ft_printf("%x\n", 0);xffffffff" */
+    ft_printf("%x\n", 0);
     printf("%#05x\n", (unsigned)-1U);
-    ft_printf("%x\n", 0);00" */
+    ft_printf("%x\n", 0);
     printf("%#0.3x\n", 0);
-    ft_printf("%x\n", 0);0xffffffff" */
+    ft_printf("%x\n", 0);
     printf("%#0.3x\n", (unsigned)-1U);
-    ft_printf("%x\n", 0);  000" */
+    ft_printf("%x\n", 0);
     printf("%#05.3x\n", 0);
-    ft_printf("%x\n", 0);"0xffffffff" */
+    ft_printf("%x\n", 0);
     printf("%#05.3x\n", (unsigned)-1U);
-    ft_printf("%x\n", 0);0000" */
+    ft_printf("%x\n", 0);
     printf("%#0.5x\n", 0);
-    ft_printf("%x\n", 0);0xffffffff" */
+    ft_printf("%x\n", 0);
     printf("%#0.5x\n", (unsigned)-1U);
     ft_printf("%x\n", 0);
     printf("%X\n", 0);
-    ft_printf("%x\n", 0);FFFF" */
+    ft_printf("%x\n", 0);
     printf("%X\n", (unsigned)-1U);
-    ft_printf("%x\n", 0);0" */
+    ft_printf("%x\n", 0);
     printf("%5X\n", 0);
-    ft_printf("%x\n", 0);FFFFF" */
+    ft_printf("%x\n", 0);
     printf("%5X\n", (unsigned)-1U);
-    ft_printf("%x\n", 0);" */
+    ft_printf("%x\n", 0);
     printf("%.3X\n", 0);
-    ft_printf("%x\n", 0);FFFFFF" */
+    ft_printf("%x\n", 0);
     printf("%.3X\n", (unsigned)-1U);
-    ft_printf("%x\n", 0);000" */
+    ft_printf("%x\n", 0);
     printf("%5.3X\n", 0);
-    ft_printf("%x\n", 0);FFFFFFF" */
+    ft_printf("%x\n", 0);
     printf("%5.3X\n", (unsigned)-1U);
-    ft_printf("%x\n", 0);00" */
+    ft_printf("%x\n", 0);
     printf("%.5X\n", 0);
-    ft_printf("%x\n", 0);FFFFFF" */
+    ft_printf("%x\n", 0);
     printf("%.5X\n", (unsigned)-1U);
-    ft_printf("%x\n", 0);/
+    ft_printf("%x\n", 0);
     printf("%0X\n", 0);
-    ft_printf("%x\n", 0);FFFFF" */
+    ft_printf("%x\n", 0);
     printf("%0X\n", (unsigned)-1U);
-    ft_printf("%x\n", 0);00" */
+    ft_printf("%x\n", 0);
     printf("%05X\n", 0);
-    ft_printf("%x\n", 0);FFFFFF" */
+    ft_printf("%x\n", 0);
     printf("%05X\n", (unsigned)-1U);
-    ft_printf("%x\n", 0);0" */
+    ft_printf("%x\n", 0);
     printf("%0.3X\n", 0);
-    ft_printf("%x\n", 0);FFFFFFF" */
+    ft_printf("%x\n", 0);
     printf("%0.3X\n", (unsigned)-1U);
-    ft_printf("%x\n", 0); 000" */
+    ft_printf("%x\n", 0);
     printf("%05.3X\n", 0);
-    ft_printf("%x\n", 0);FFFFFFFF" */
+    ft_printf("%x\n", 0);
     printf("%05.3X\n", (unsigned)-1U);
-    ft_printf("%x\n", 0);000" */
+    ft_printf("%x\n", 0);
     printf("%0.5X\n", 0);
-    ft_printf("%x\n", 0);FFFFFFF" */
+    ft_printf("%x\n", 0);
     printf("%0.5X\n", (unsigned)-1U);
-    ft_printf("%x\n", 0);/
+    ft_printf("%x\n", 0);
     printf("%#X\n", 0);
-    ft_printf("%x\n", 0);FFFFFFF" */
+    ft_printf("%x\n", 0);
     printf("%#X\n", (unsigned)-1U);
-    ft_printf("%x\n", 0); 0" */
+    ft_printf("%x\n", 0);
     printf("%#5X\n", 0);
-    ft_printf("%x\n", 0);FFFFFFFF" */
+    ft_printf("%x\n", 0);
     printf("%#5X\n", (unsigned)-1U);
-    ft_printf("%x\n", 0);0" */
+    ft_printf("%x\n", 0);
     printf("%#.3X\n", 0);
-    ft_printf("%x\n", 0);XFFFFFFFF" */
+    ft_printf("%x\n", 0);
     printf("%#.3X\n", (unsigned)-1U);
-    ft_printf("%x\n", 0); 000" */
+    ft_printf("%x\n", 0);
     printf("%#5.3X\n", 0);
-    ft_printf("%x\n", 0);0XFFFFFFFF" */
+    ft_printf("%x\n", 0);
     printf("%#5.3X\n", (unsigned)-1U);
-    ft_printf("%x\n", 0);000" */
+    ft_printf("%x\n", 0);
     printf("%#.5X\n", 0);
-    ft_printf("%x\n", 0);XFFFFFFFF" */
+    ft_printf("%x\n", 0);
     printf("%#.5X\n", (unsigned)-1U);
-    ft_printf("%x\n", 0);/
+    ft_printf("%x\n", 0);
     printf("%-X\n", 0);
-    ft_printf("%x\n", 0);FFFFF" */
+    ft_printf("%x\n", 0);
     printf("%-X\n", (unsigned)-1U);
-    ft_printf("%x\n", 0);  " */
+    ft_printf("%x\n", 0);
     printf("%-5X\n", 0);
-    ft_printf("%x\n", 0);FFFFFF" */
+    ft_printf("%x\n", 0);
     printf("%-5X\n", (unsigned)-1U);
-    ft_printf("%x\n", 0);0" */
+    ft_printf("%x\n", 0);
     printf("%-.3X\n", 0);
-    ft_printf("%x\n", 0);FFFFFFF" */
+    ft_printf("%x\n", 0);
     printf("%-.3X\n", (unsigned)-1U);
-    ft_printf("%x\n", 0);00  " */
+    ft_printf("%x\n", 0);
     printf("%-5.3X\n", 0);
-    ft_printf("%x\n", 0);FFFFFFFF" */
+    ft_printf("%x\n", 0);
     printf("%-5.3X\n", (unsigned)-1U);
-    ft_printf("%x\n", 0);000" */
+    ft_printf("%x\n", 0);
     printf("%-.5X\n", 0);
-    ft_printf("%x\n", 0);FFFFFFF" */
+    ft_printf("%x\n", 0);
     printf("%-.5X\n", (unsigned)-1U);
-    ft_printf("%x\n", 0);*/
+    ft_printf("%x\n", 0);
     printf("%#0X\n", 0);
-    ft_printf("%x\n", 0);FFFFFFFF" */
+    ft_printf("%x\n", 0);
     printf("%#0X\n", (unsigned)-1U);
-    ft_printf("%x\n", 0);000" */
+    ft_printf("%x\n", 0);
     printf("%#05X\n", 0);
-    ft_printf("%x\n", 0);XFFFFFFFF" */
+    ft_printf("%x\n", 0);
     printf("%#05X\n", (unsigned)-1U);
-    ft_printf("%x\n", 0);00" */
+    ft_printf("%x\n", 0);
     printf("%#0.3X\n", 0);
-    ft_printf("%x\n", 0);0XFFFFFFFF" */
+    ft_printf("%x\n", 0);
     printf("%#0.3X\n", (unsigned)-1U);
-    ft_printf("%x\n", 0);  000" */
+    ft_printf("%x\n", 0);
     printf("%#05.3X\n", 0);
-    ft_printf("%x\n", 0);"0XFFFFFFFF" */
+    ft_printf("%x\n", 0);
     printf("%#05.3X\n", (unsigned)-1U);
-    ft_printf("%x\n", 0);0000" */
+    ft_printf("%x\n", 0);
     printf("%#0.5X\n", 0);
-    ft_printf("%x\n", 0);0XFFFFFFFF" */
+    ft_printf("%x\n", 0);
     printf("%#0.5X\n", (unsigned)-1U);
     return 0;
 }

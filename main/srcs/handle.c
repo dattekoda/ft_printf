@@ -21,7 +21,7 @@ int	handle_char(char c, const t_fmt *f)
 	len = 0;
 	ret = 0;
 	if (f->width > 1 && !(f->flags & FLAG_MINUS))
-		ret = ft_putnchar(' ', f->width - 1, &len);
+		ret = (int)ft_putnchar(' ', f->width - 1, &len);
 	if (ret == -1)
 		return (-1);
 	ret = write(1, &c, 1);
@@ -29,7 +29,7 @@ int	handle_char(char c, const t_fmt *f)
 		return (-1);
 	len += ret;
 	if (f->width > 1 && f->flags & FLAG_MINUS)
-		ret = ft_putnchar(' ', f->width - 1, &len);
+		ret = (int)ft_putnchar(' ', f->width - 1, &len);
 	if (ret == -1)
 		return (-1);
 	return (len);
@@ -49,7 +49,7 @@ int	handle_str(char *s, const t_fmt *f)
 	if (f->flags & FLAG_DOT && f->prec < slen)
 		slen = f->prec;
 	if (f->width > slen && !(f->flags & FLAG_MINUS))
-		ret = ft_putnchar(' ', f->width - slen, &len);
+		ret = (int)ft_putnchar(' ', f->width - slen, &len);
 	if (ret == -1)
 		return (-1);
 	ret = write(1, s, slen);
@@ -57,7 +57,7 @@ int	handle_str(char *s, const t_fmt *f)
 		return (-1);
 	len += ret;
 	if (f->width > slen && f->flags & FLAG_MINUS)
-		ret = ft_putnchar (' ', f->width - slen, &len);
+		ret = (int)ft_putnchar (' ', f->width - slen, &len);
 	if (ret == -1)
 		return (-1);
 	return (len);
@@ -73,7 +73,7 @@ int	handle_null(const t_fmt *f)
 	if (6 <= f->prec || !(f->flags & FLAG_DOT))
 	{
 		if (6 <= f->width && !(f->flags & FLAG_MINUS))
-			ret = ft_putnchar(' ', f->width - 6, &len);
+			ret = (int)ft_putnchar(' ', f->width - 6, &len);
 		if (ret == -1)
 			return (-1);
 		ret = write(1, "(null)", 6);
@@ -81,10 +81,10 @@ int	handle_null(const t_fmt *f)
 		if (ret == -1)
 			return (-1);
 		if (6 <= f->width && f->flags & FLAG_MINUS)
-			ret = ft_putnchar(' ', f->width - 6, &len);
+			ret = (int)ft_putnchar(' ', f->width - 6, &len);
 	}
 	else
-		ret = ft_putnchar(' ', f->width, &len);
+		ret = (int)ft_putnchar(' ', f->width, &len);
 	if (ret == -1)
 		return (-1);
 	return (len);

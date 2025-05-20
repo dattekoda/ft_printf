@@ -26,7 +26,7 @@ $(NAME): $(OBJS)
 	$(AR) $@ $^
 
 bonus:
-	@$(MAKE) OBJS="$(BONUS_OBJS)" NAME=$(NAME) $(NAME)
+	$(MAKE) OBJS="$(BONUS_OBJS)" NAME=$(NAME) $(NAME)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@

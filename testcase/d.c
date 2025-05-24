@@ -47,9 +47,12 @@ int	main(void)
 	// printf("|%06.2i|\n", 4312);
 	// ft_printf("|%06.2i|\n", 4312);
 
-	printf("|%07i|\n", -54);
-	ft_printf("|%07i|\n", -54);
+	// printf("|%07i|\n", -54);
+	// ft_printf("|%07i|\n", -54);
 
-	printf("|%0d|\n", 0);
-	ft_printf("|%0d|\n", 0);
+	// printf("|%0d|\n", 0);
+	// ft_printf("|%0d|\n", 0);
+
+	printf("%d\n", printf("%d\n", NULL));
+	printf("%d\n", ft_printf("%d\n", NULL));
 }

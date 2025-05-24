@@ -20,19 +20,20 @@ int	ft_printf(const char *fmt, ...)
 	t_fmt			f;
 	int				tmp;
 
-	i = 0;
+	if (fmt == NULL)
+		return (-1);
+	i = -1;
 	total = 0;
 	va_start(ap, fmt);
-	while (fmt && fmt[i])
+	while (fmt && fmt[++i])
 	{
 		if (fmt[i] == '%')
 			tmp = ft_vprintf(fmt, &ap, &i, &f);
 		else
 			tmp = write(1, &fmt[i], 1);
 		if (tmp == -1)
-			return (-1);
+			return (va_end(ap), -1);
 		total += tmp;
-		i++;
 	}
 	va_end(ap);
 	return (total);
